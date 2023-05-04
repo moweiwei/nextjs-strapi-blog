@@ -1,4 +1,4 @@
-# Strapi Starter Next 13, Tailwind, Typescript and Strapi
+# Next 13, Tailwind, Typescript and Strapi
 
 note: This project was started with love by [Trecia](https://github.com/TreciaKS), [Daniel](https://github.com/malgamves) and [Paul](https://github.com/PaulBratslavsky). We were all new to Next 13 and Typescript. If you find any bugs or improvements feel free to create an issue. Thank you all for your support and participation.
 
@@ -17,7 +17,7 @@ note: This project was started with love by [Trecia](https://github.com/TreciaKS
 2. CD into `backend` directory and run the following command to install all the dependencies:
 
 ```bash
-  yarn
+  pnpm install
 ```
 
 3. Next Set up your `.env` file. You can use use the `.env.example` file as reference:
@@ -35,8 +35,8 @@ TRANSFER_TOKEN_SALT=tobemodified
 4. Start Your Project by running the following command:
 
 ```bash
-  yarn build
-  yarn develop
+  pnpm build
+  pnpm develop
 ```
 
 You will be prompted to create your first admin user.
@@ -58,7 +58,7 @@ In the root of our project we have our `seed-data.tar.gz` file. We will use it t
 2. Run the following command to seed your data:
 
 ```bash
-  yarn strapi import -f ../seed-data.tar.gz
+  pnpm strapi import -f ../seed-data.tar.gz
 ```
 
 ![after-import](https://user-images.githubusercontent.com/6153188/231865491-05cb5818-a0d0-49ce-807e-a879f7e3070c.gif)
@@ -67,7 +67,7 @@ This will import your data locally. Log back into your admin panel to see the ne
 
 ## Setting Up The Frontend
 
-CD into your `frontend` directory and run the `yarn` to instal all of your dependencies.
+CD into your `frontend` directory and run the `pnpm install` to instal all of your dependencies.
 
 Next we need to create our `.env` file and paste in the following.
 
@@ -86,14 +86,14 @@ Inside your Strapi Admin Panel navigate to Settings -> API Tokens and click on t
 
 Here are our Token Settings
 
-Name: Public API Token Content
-Description: Access to public content.
-Token duration: Unlimited
-Token type: Custom
+- Name: Public API Token Content
+- Description: Access to public content.
+- Token duration: Unlimited
+- Token type: Custom
 
 In Permissions lets give the following access.
 
-| Content  | Permissions   
+| Content  | Permissions
 |----------|:-------------:|
 | Article | find and findOne |
 | Author | find and findOne |
@@ -106,22 +106,22 @@ In Permissions lets give the following access.
 
 Once you have your token add it to your `NEXT_PUBLIC_STRAPI_API_TOKEN` variable name in the `.env` file.
 
-Also create a token that will allow us to submit our form. 
+Also create a token that will allow us to submit our form.
 
-Name: Public API Form Submit
-Description: Form Submission.
-Token duration: Unlimited
-Token type: Custom
+- Name: Public API Form Submit
+- Description: Form Submission.
+- Token duration: Unlimited
+- Token type: Custom
 
 In Permissions lets give the following access.
 
-| Content  | Permissions   
+| Content  | Permissions
 |----------|:-------------:|
 | Lead-Form-Submission | create |
 
 Add your token to your `NEXT_PUBLIC_STRAPI_FORM_SUBMISSION_TOKEN` variable name in the `.env` file.
 
-Once your environment variables are set you can start your frontend application by running `yarn dev`.
+Once your environment variables are set you can start your frontend application by running `pnpm dev`.
 
 You should now see your Next JS frontend.
 
@@ -137,10 +137,10 @@ You can find the setting inside the `package.json` file inside the root folder.
 { 
   "scripts": {
   
-    "frontend": "yarn dev --prefix ../frontend/",
-    "backend": "yarn dev --prefix ../backend/",
+    "frontend": "pnpm --prefix ../frontend/ dev",
+    "backend": "pnpm --prefix ../backend/ dev",
     "clear": "cd frontend/.next && rm -rf cache",
-    "dev": "concurrently \"yarn clear\" \"cd frontend && yarn dev\" \"cd backend && yarn develop\""
+    "dev": "concurrently \"pnpm clear\" \"cd frontend && pnpm dev\" \"cd backend && pnpm develop\""
   },
   "dependencies": {
     "concurrently": "^7.6.0"
@@ -148,7 +148,8 @@ You can find the setting inside the `package.json` file inside the root folder.
 }
 
 ```
-Inside your root folder run `yarn` to install the dependencies and you can start both apps by running `yarn dev`.
+
+Inside your root folder run `pnpm` to install the dependencies and you can start both apps by running `pnpm dev`.
 
 ## Conclusion
 
@@ -159,5 +160,3 @@ Would love to hear what you will build using it.
 If you find bugs or have suggestions feel free to create issues.
 
 Thank you and stay awesome.
-
-
